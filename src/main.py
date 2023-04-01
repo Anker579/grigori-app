@@ -1,6 +1,5 @@
 from db_connector import DBCommunicator
 from api_connector import WeatherApi
-import datetime as dt
 
 
 my_api_con = WeatherApi()
