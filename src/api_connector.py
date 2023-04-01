@@ -1,17 +1,19 @@
 import requests
 import datetime as dt
 import json
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
+import os
+# from dotenv import dotenv_values
+# config = dotenv_values(".env")
 
-
+load_dotenv()
 
 class WeatherApi():
     def __init__(self) -> None:
-        self.home_lat = config["home_lat"]
-        self.home_long = config["home_long"]
-        self.APP_ID = config["APP_ID"]
-        self.APP_KEY = config["APP_KEY"]
+        self.home_lat = os.environ.get("home_lat")
+        self.home_long = os.environ.get("home_long")
+        self.APP_ID = os.environ.get("APP_ID")
+        self.APP_KEY = os.environ.get("APP_KEY")
         self.url = f"http://api.weatherunlocked.com/api/current/{self.home_lat},{self.home_long}?app_id={self.APP_ID}&app_key={self.APP_KEY}"
 
     def get_response(self):

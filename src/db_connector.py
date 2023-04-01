@@ -1,15 +1,17 @@
 import MySQLdb
 import datetime as dt
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
+import os
+# from dotenv import dotenv_values
+# config = dotenv_values(".env")
 
 class DBCommunicator():
 
     def __init__(self) -> None:
-        self.HOST = config["HOST"]
-        self.DATABASE = config["DATABASE"]
-        self.USER = config["USER"]
-        self.PASSWORD = config["PASSWORD"]
+        self.HOST = os.environ.get("HOST")
+        self.DATABASE = os.environ.get("DATABASE")
+        self.USER = os.environ.get("USER")
+        self.PASSWORD = os.environ.get("PASSWORD")
 
     def db_connector(self):
         db = MySQLdb.connect(host=self.HOST,
