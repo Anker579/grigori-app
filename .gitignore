@@ -1,3 +1,4 @@
 .env
 C:\Users\Angus\grigori-app\src\__pycache__\api_connector.cpython-310.pyc
 C:\Users\Angus\grigori-app\src\__pycache__\db_connector.cpython-310.pyc
+*.pyc
