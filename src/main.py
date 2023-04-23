@@ -1,9 +1,10 @@
 from db_connector import DBCommunicator
 from api_connector import WeatherApi
+from emailer import email_bot
 
 
-my_api_con = WeatherApi()
 my_db_comm = DBCommunicator()
+my_email_bot = email_bot()
 
 
 my_weather_api = WeatherApi()
@@ -11,6 +12,8 @@ response = my_weather_api.get_response()
 time = my_weather_api.get_time()
 if my_weather_api.check_response(response=response) == True:
     data = my_weather_api.create_dict(response=response, time=time)
+else:
+    my_email_bot.email_me()
 
 database = my_db_comm.db_connector()
 cursor = my_db_comm.create_cursor(database)
