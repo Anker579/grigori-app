@@ -29,7 +29,7 @@ class WeatherApi():
             return response_OW
 
     def create_dict_OW(self, response_OW, time):
-        data = response.json()
+        data = response_OW.json()
         data_dict = {}
         data_dict["time"] = time
         data_dict["lat"] = self.home_lat
