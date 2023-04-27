@@ -8,13 +8,14 @@ my_email_bot = email_bot()
 
 
 my_weather_api = WeatherApi()
-response = my_weather_api.get_response_WU()
+response = my_weather_api.get_response_OW()
 time = my_weather_api.get_time()
+
 if my_weather_api.check_response(response=response) == True:
-    data = my_weather_api.create_dict(response=response, time=time)
+    data = my_weather_api.create_dict_OW(response=response, time=time)
 elif not my_weather_api.check_response(response):
-    response = my_weather_api.get_response_OW()
-    data = my_weather_api.create_dict_OW(response_OW=response, time=time)
+    response = my_weather_api.get_response_WU()
+    data = my_weather_api.create_dict_WU(response=response, time=time)
 else:
     my_email_bot.email_me()
 
