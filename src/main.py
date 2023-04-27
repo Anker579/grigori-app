@@ -12,7 +12,7 @@ response = my_weather_api.get_response_OW()
 time = my_weather_api.get_time()
 
 if my_weather_api.check_response(response=response) == True:
-    data = my_weather_api.create_dict_OW(response=response, time=time)
+    data = my_weather_api.create_dict_OW(response_OW=response, time=time)
 elif not my_weather_api.check_response(response):
     response = my_weather_api.get_response_WU()
     data = my_weather_api.create_dict_WU(response=response, time=time)
